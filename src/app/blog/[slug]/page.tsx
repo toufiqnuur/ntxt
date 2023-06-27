@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import { Mdx } from "@/components/Mdx";
 import { allBlogs } from "contentlayer/generated";
@@ -8,31 +8,28 @@ interface IParams {
   params: { slug: string };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allBlogs.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: IParams): Promise<Metadata | undefined> {
+export function generateMetadata({ params }: IParams): Metadata | undefined {
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) return;
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    slug,
-  } = post;
+  const { title, publishedAt: publishedTime, summary: description, slug } = post;
 
   return {
     title,
     description,
-    type: "article",
-    publishedTime,
-    url: `https://ntxt.pages.dev/blog/${slug}`,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      authors: "toufiqnuur",
+    },
   };
 }
 

@@ -1,6 +1,7 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
 
+// @ts-ignore
 const CustomLink = (props) => {
   const url = props.href;
 

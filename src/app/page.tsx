@@ -15,7 +15,7 @@ async function getRecentTweet() {
         { cache: "no-store" }
       )
     ).json();
-    tweet = Object.entries(tweet)[0][1]
+    tweet = Object.entries(tweet)[0][1];
   } catch (err) {
     error = err;
   }
@@ -48,8 +48,8 @@ export default async function Home() {
               new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
             )
             .slice(0, 10)
-            .map((post) => (
-              <PostCard post={post} />
+            .map((post, idx) => (
+              <PostCard post={post} key={idx} />
             ))}
           <Link
             href="/blog"

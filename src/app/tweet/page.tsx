@@ -35,7 +35,7 @@ export default async function Tweet() {
         <div className="mt-2 divide-y divide-zinc-500/50">
           {tweets.map(
             (tweet: [string, { uploadedAt: number; body: string }]) => (
-              <TweetCard data={tweet[1]} />
+              <TweetCard data={tweet[1]} key={tweet[0]} />
             )
           )}
         </div>

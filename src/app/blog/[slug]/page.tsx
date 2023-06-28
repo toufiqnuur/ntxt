@@ -4,9 +4,6 @@ import { Mdx } from "@/components/Mdx";
 import { allBlogs } from "contentlayer/generated";
 import dayjs from "dayjs";
 
-// cloudflare runtime conf for server side route
-export const runtime = 'edge';
-
 interface IParams {
   params: { slug: string };
 }

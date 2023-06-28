@@ -4,6 +4,8 @@ import { Mdx } from "@/components/Mdx";
 import { allBlogs } from "contentlayer/generated";
 import dayjs from "dayjs";
 
+export const dynamicParams = false;
+
 interface IParams {
   params: { slug: string };
 }

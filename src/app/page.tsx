@@ -6,8 +6,8 @@ import PostCard from "@/components/PostCard";
 import TweetCard from "@/components/TweetCard";
 import { REST_URL } from "@/constant";
 
-// cloudflare runtime conf for server side route
-export const runtime = 'edge';
+export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 async function getRecentTweet() {
   let tweet, error;

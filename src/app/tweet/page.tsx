@@ -2,6 +2,9 @@ import Header from "@/components/Header";
 import TweetCard from "@/components/TweetCard";
 import { REST_URL } from "@/constant";
 
+// cloudflare runtime conf for server side route
+export const runtime = 'edge';
+
 export const metadata = {
   title: "Tweet - ntxt",
   description:

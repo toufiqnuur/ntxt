@@ -4,6 +4,9 @@ import { Mdx } from "@/components/Mdx";
 import { allBlogs } from "contentlayer/generated";
 import dayjs from "dayjs";
 
+// cloudflare runtime conf for server side route
+export const runtime = 'edge';
+
 interface IParams {
   params: { slug: string };
 }
@@ -18,7 +21,7 @@ export function generateMetadata({ params }: IParams): Metadata | undefined {
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) return;
 
-  const { title, publishedAt: publishedTime, summary: description, slug } = post;
+  const { title, publishedAt: publishedTime, summary: description } = post;
 
   return {
     title,
